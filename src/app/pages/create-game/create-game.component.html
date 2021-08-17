@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8" style="text-align: center;">
+
+            <H1>Regristre Jugadores</H1>
+            <hr>
+
+
+            <form (ngSubmit)="createGame()" [formGroup]="form" autocomplete="off">
+
+                <div class="mb-3">
+                    <div class="row">
+
+                        <div class="col-md-4" style="text-align: left;">
+                            <label class="form-label">Jugador 1:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input formControlName="Player1" type="text" class="form-control"
+                                placeholder="Nombre Jugador 1">
+                            <p *ngIf="campoValido('Player1')" style="color: red; text-align: left;">Campo Requerido</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="margin-top: 10px;">
+
+                        <div class="col-md-4" style="text-align: left;">
+                            <label for="exampleInputEmail1" class="form-label">Jugador 2:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input formControlName="Player2" type="text" class="form-control"
+                                placeholder="Nombre Jugador 2">
+                            <p *ngIf="campoValido('Player2')" style="color: red; text-align: left;">Campo Requerido</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <p *ngIf="validateNames()" style="color: red;">Los nombre de los Jugadores deben ser diferentes</p>
+
+                <div class="row" style="margin-top: 10px;">
+
+                    <button type="submit" class="btn btn-primary">Crear Partida</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+</div>

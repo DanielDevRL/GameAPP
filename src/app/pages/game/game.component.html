@@ -1,0 +1,49 @@
+<div class="container" >
+    <h1>Ronda {{numberRound}}</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+          <h4>Player {{player}}: {{namePler}}</h4>
+          <div class="row">
+              <div class="col-md-12">
+                <form [formGroup]="form" (ngSubmit)="submit()">  
+                    <select formControlName="Movimiento" class="form-select" aria-label="Default select example">  
+                        <option value="-1">Seleccione Movimiento</option>  
+                        <option *ngFor="let web of list" value="{{web.idMovement}}">{{web.movementName}}</option>  
+                    </select>  
+                    <p *ngIf="validateGame()" style="color: red;">Selecione un Movimiento!!!</p>
+                    <div class="row" style="margin-top: 10px;">
+                        <button type="submit" class="btn btn-primary">Jugar!!!</button>
+                    </div>
+    
+                </form>
+              </div>         
+          </div>
+      </div>
+      <div class="col-md-6">
+        <h4>Resultados</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ronda</th>
+                        <th scope="col">Ganador</th>                     
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let r of listResutl; index as i">
+                            <td>
+                                {{ r.idRound }}
+                              </td>
+                              <td>
+                                {{ r.result }}
+                              </td>
+                        </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
